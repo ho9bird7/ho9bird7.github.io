@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 
 body, p { margin: 0; }
 #box1 {
@@ -15,10 +15,10 @@ body, p { margin: 0; }
 }
 #box1 > p {
     position: absolute;
-    top: 50%;
+    top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: 'Rubik Moonrocks', cursive;
-    font-size: 7vw;
-    color: rgba(255, 0, 0, 0.6);
+    font-family: 'Black Han Sans', sans-serif;
+        font-size: 4vw;
+    color: rgba(0, 0, 0, 0.4);
 }
