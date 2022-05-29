@@ -99,167 +99,114 @@ z-index:120;}
 }
 
 #box1{
-    top:200px;
-    left:860px;
-    width:550px;
-    height:290px;
+    top:18.52vh;
+    /* 200 */
+    left:44.79%;
+    /* 860 */
+    width:28.65vw;
+    /* 550 */
+    height:26.85vh;
+    /* 290 */
     z-index:120;
 }
 #box2{
-    top:130px;
-    left:620px;
-    width:200px;
-    height:210px;
+    top:12.04vh;
+    /* 130 */
+    left:32.29%;
+    /* 620 */
+    width:10.42vw;
+    /* 200 */
+    height:19.44vh;
+    /* 210 */
     z-index:120;
 }
 #box3{
-    top:530px;
-    left:1100px;
-    width:200px;
-    height:160px;
+    top:49.07vh;
+    /* 530 */
+    left:57.29%;
+    /* 1100 */
+    width:10.42vw;
+    /* 200 */
+    height:14.81vh;
+    /* 160 */
     z-index:120;
 }
 #box4{
-    top:370px;
-    left:1450px;
-    width:120px;
-    height:180px;
+    top:34.26vh;
+    /* 370 */
+    left:75.52%;
+    /* 1450 */
+    width:6.25vw;
+    /* 120 */
+    height:16.67vh;
+    /* 180 */
     z-index:120;
 }
 #box5{
-    top:380px;
-    left:470px;
-    width:350px;
-    height:220px;
+    top:35.19vh;
+    /* 380 */
+    left:24.48%;
+    /* 470 */
+    width:18.23vw;
+    /* 350 */
+    height:20.37vh;
+    /* 220 */
     z-index:120;
 }
 #box6{
-    top:530px;
-    left:860px;
-    width:200px;
-    height:260px;
+    top:49.07vh;
+    /* 530 */
+    left:44.79%;
+    /* 860 */
+    width:10.42vw;
+    /* 200 */
+    height:24.07vh;
+    /* 260 */
     z-index:120;
 }
 #box7{
-    top:640px;
-    left:560px;
-    width:260px;
-    height:210px;
+    top:59.26vh;
+    /* 640 */
+    left:29.17%;
+    /* 560 */
+    width:13.54vw;
+    /* 260 */
+    height:19.44vh;
+    /* 210 */
     z-index:120;
 }
+
 #box_1{
-    width:530px;
-    height:230px;
+    width:calc(28.65vw - 20px);
+    height:21.30vh;
 }
 #box_2{
-    width:180px;
-    height:160px;
+    width:calc(10.42vw - 20px);
+    height:14.81vh;
 }
 #box_3{
-    width:180px;
-    height:120px;
+    width:calc(10.42vw - 20px);
+    height:11.11vh;
 }
 #box_4{
-    width:100px;
-    height:120px;
+    width:calc(6.25vw - 20px);
+    height: 11.11vh;
 }
 #box_5{
-    width:330px;
-    height:200px;
+    width:calc(18.23vw - 20px);
+    height:18.52vh;
 }
 #box_6{
-    width:180px;
-    height:240px;
+    width:calc(10.42vw - 20px);
+    height:22.22vh;
 }
 #box_7{
-    width:240px;
-    height:170px;
+    width:calc(13.54vw - 20px);
+    height:15.74vh;
 }
 
 
-@media screen and (max-width: 960px){
-    #box1{
-        top:200px;
-        left:430px;
-        width:275px;
-        height:145px;
-        z-index:120;
-    }
-    #box2{
-        top:165px;
-        left:310px;
-        width:100px;
-        height:105px;
-        z-index:120;
-    }
-    #box3{
-        top:365px;
-        left:550px;
-        width:100px;
-        height:80px;
-        z-index:120;
-    }
-    #box4{
-        top:285px;
-        left:725px;
-        width:60px;
-        height:90px;
-        z-index:120;
-    }
-    #box5{
-        top:290px;
-        left:235px;
-        width:175px;
-        height:110px;
-        z-index:120;
-    }
-    #box6{
-        top:365px;
-        left:430px;
-        width:100px;
-        height:130px;
-        z-index:120;
-    }
-    #box7{
-        top:420px;
-        left:280px;
-        width:130px;
-        height:105px;
-        z-index:120;
-    }
-    #box_1{
-        width:265px;
-        height:115px;
-    }
-    #box_2{
-        width:90px;
-        height:80px;
-    }
-    #box_3{
-        width:90px;
-        height:60px;
-    }
-    #box_4{
-        width:50px;
-        height:60px;
-    }
-    #box_5{
-        width:165px;
-        height:100px;
-    }
-    #box_6{
-        width:90px;
-        height:120px;
-    }
-    #box_7{
-        width:120px;
-        height:85px;
-    }
-    .imglay{
-        margin-top:5px;
-        margin-left:5px;
-    }
-}
+
 
 @media screen and (max-width: 520px){
     #box1, #box5, #box7 {
@@ -283,7 +230,7 @@ z-index:120;}
         height:0;
     }
     #box_1,#box_5,#box_7 {
-        width:calc(100% - 10px);
+        width:calc(100% - 20px);
         height:200px;
     }
     #box_2,#box_3,#box_4,#box_6{
