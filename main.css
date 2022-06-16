@@ -1,6 +1,31 @@
 ::-webkit-scrollbar-{
     display: none;
 }
+
+@keyframes fadein{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+a{
+    margin: 0;
+    padding: 0;
+    font-family: 'Akshar', sans-serif;
+    text-decoration-line: none;
+    transition: .2s;
+}
+a:link, a:visited{ color : white;}
+a:hover{ color : gray; opacity: .5;}
+
+#size{
+    width : 100%;
+    height: 100%;
+}
+
 /* --------------------------------<header>------------------------------- */
 
 header{
@@ -24,6 +49,7 @@ header{
 
 #logo{
     position: absolute;
+    left: 20px;
     font-size: 80px;
     bottom:0px;
 }
@@ -33,69 +59,63 @@ header{
     right: 10px;
     bottom:0px;
 }
-/* --------------------------------------------------------------- */
-a{
-    margin: 0;
-    padding: 0;
-    font-family: 'Akshar', sans-serif;
-    text-decoration-line: none;
-    transition: .2s;
-}
-a:link, a:visited{ color : white;}
-a:hover{ color : gray; opacity: .5;}
-
-/* ------------------------------<main>--------------------------------- */
-
-@keyframes fadein{
-    from{
-        opacity:0;
+@media screen and (max-width: 960px) {
+    header{
+        height: 80px;
     }
-    to{
-        opacity:1;
+    #logo {
+       font-size:60px;
+    } 
+    #social{
+        font-size:30px;
+    }
+
+}
+
+@media screen and (max-width: 520px) {
+    header{
+        height: 60px;
+    }
+    #logo {
+        font-size:40px;
+    }
+    #social{
+        font-size:20px;
     }
 }
-/* --------------------------------------------------------------- */
-.paper1{
-position:absolute;
-background-color:white;
-z-index:120;}
+
+/* ------------------------------<index>--------------------------------- */
+.imglay{
+    margin-top:10px;
+    margin-left:10px;
+    padding:0;
+}
 
 .paper1{
+    position:absolute;
+    background-color:white;
+    z-index:120;
     animation: fadein 1.5s;
     animation-delay: 0.5s;
     animation-fill-mode: backwards;
 }
 
-/* --------------------------------------------------------------- */
 .paper2{
-position: absolute;
-background-color: white;
-z-index:120;}
-
-.paper2{
+    position: absolute;
+    background-color: white;
+    z-index:120;
     animation: fadein 1.5s;
     animation-delay: 1.25s;
     animation-fill-mode: backwards;
 }
 
-/* --------------------------------------------------------------- */
 .paper3{
-position: absolute;
-background-color: white;
-z-index:120;}
-
-.paper3{
+    position: absolute;
+    background-color: white;
+    z-index:120;
     animation: fadein 1.5s;
     animation-delay: 2s;
     animation-fill-mode: backwards;
-}
-
-/* --------------------------------------------------------------- */
-
-.imglay{
-    margin-top:10px;
-    margin-left:10px;
-    padding:0;
 }
 
 #box1{
@@ -178,35 +198,32 @@ z-index:120;}
 
 #box_1{
     width:calc(28.65vw - 20px);
-    height:21.30vh;
+    height:calc(26.85vh - 30px);
 }
 #box_2{
     width:calc(10.42vw - 20px);
-    height:14.81vh;
+    height:calc(19.44vh - 30px);
 }
 #box_3{
     width:calc(10.42vw - 20px);
-    height:11.11vh;
+    height:calc(14.81vh - 30px);
 }
 #box_4{
     width:calc(6.25vw - 20px);
-    height: 11.11vh;
+    height: calc(16.67vh - 30px);
 }
 #box_5{
     width:calc(18.23vw - 20px);
-    height:18.52vh;
+    height:calc(20.37vh - 30px);
 }
 #box_6{
     width:calc(10.42vw - 20px);
-    height:22.22vh;
+    height:calc(24.07vh - 30px);
 }
 #box_7{
     width:calc(13.54vw - 20px);
-    height:15.74vh;
+    height:calc(19.44vh - 30px);
 }
-
-
-
 
 @media screen and (max-width: 520px){
     #box1, #box5, #box7 {
@@ -237,305 +254,273 @@ z-index:120;}
         width:0;
         height:0;
     } 
+
 }
 
-/* --------------------------------------------------------------- */
+/* --------------------------------<me>------------------------------- */
 
-#workpaper{
+.myimage_algin{
+    display: block;
     position: absolute;
-    background-color: none;
-    top: 120px;
-    left: 50%;
-    margin-left:-420px;
-    width:1000px;
-    height:700px;
+    top:140px;
+    left:510px;
+}
 
-    animation: fadein 1.5s;
-    animation-delay: 0.5s;
-    animation-fill-mode: backwards;
-    z-index: 100;
+#myimage_1{
+    width:100%;
+    height:100%;
 }
 
 .myimage{
+    text-align: left;
     position: absolute;
-    top:20px;
+    top:140px;
     left:20px;
     z-index : 200;
-}
-.introduce1{
-    position: absolute;
-    animation: fadein 1.5s;
-    animation-delay: 3s;
-    animation-fill-mode: backwards;
-    top:410px;
-    left:20px;
-    font-size: 50px;
-    z-index: 300;
-}
-.introduce2{
-    position: absolute;
-    animation: fadein 1.5s;
-    animation-delay: 3.5s;
-    animation-fill-mode: backwards;
-    top:510px;
-    left:20px;
-    font-size: 30px;
-    z-index: 300;
+    height:300px;
+    width:450px;
 }
 
-
-.layout1{
-    position: relative;
-    text-align: left;
-    top :0;
-    left:480px;
-    z-index: 200;
-    padding:0;
-    margin:0;
-    line-height: 0px;
-}
 #nameline1{
     position: relative;
     text-align: left;
-    top:-20px;
-    right:300px;
-}
-#nameline2{
-    position: relative;
-    text-align: left;
-    top:-20px;
-    right:300px;
-}
-#nameline3{
-    position: absolute;
-    text-align: left;
-    top:520px;
-    left:20px;
+    left : 0px;
+    top : 0px;
+    width : calc(100vw - 600px);
 }
 
-.line1{
-    animation: fadein 1.5s;
-    animation-delay: 1s;
-    animation-fill-mode: backwards;
-    z-index: 200;
-    font-size:60px;
-    
-}
-.line2{
-    animation: fadein 1.5s;
-    animation-delay: 1.5s;
-    animation-fill-mode: backwards;
-    z-index: 200;
-    font-size:35px;
-    margin-bottom: 200px;
-}
-.line3{
-    animation: fadein 1.5s;
-    animation-delay: 2.0s;
-    animation-fill-mode: backwards;
-    z-index: 200;
-    font-size:60px;
-}
-.line4{
-    animation: fadein 1.5s;
-    animation-delay: 2.5s;
-    animation-fill-mode: backwards;
-    z-index: 200;
-    font-size:30px;
-    line-height: 15px;
+@media screen and (max-width: 960px){
+    .myimage_algin{
+        left: calc(30% + 40px);
+    }
+    #myimage_1{
+        height:100%;
+        width:100%;
+    }
+    .myimage{
+        top:120px;
+        height:50%;
+        width:30%;
+    }
+    #nameline1{
+        width : calc(100vw - 400px);
+    }
 }
 
-/* --------------work1---------------- */
-#workpaper1{
-    position: absolute;
-    background-color: none;
-    top: 80px;
-    left: 50%;
-    margin-left:-620px;
-    width:1400px;
-    height:700px;
+@media screen and (max-width: 520px){
+    .myimage_algin{
+        top: 460px;
+        left: 20px;
+    }
+    #myimage_1{
+        text-align: left;
+        left:20px;
+        height: 100%;
+        width: 100%;
+    }
+    .myimage{
+        top:120px;
+        height:50%;
+        width:calc(100vw - 70px);
+    }
+    #nameline1{
+        width : 400px;
+    }
+    .myimage_algin{
+        top: calc(50% + 40px);
+    }
 }
 
-.work1paper1{
-    float: left;
-    position: absolute;
-    top:20px;
-    left:20px;
-    z-index : 200;
+.me_paper1 , .myimage{
     animation: fadein 1.5s;
     animation-delay: 0.5s;
     animation-fill-mode: backwards;
 }
-.work1paper2{
-    position: absolute;
-    top:380px;
-    left:450px;
-    z-index : 200;
+.me_paper2{
+    animation: fadein 1.5s;
+    animation-delay: 1.25s;
+    animation-fill-mode: backwards;
+}
+.me_paper3{
     animation: fadein 1.5s;
     animation-delay: 2s;
     animation-fill-mode: backwards;
 }
-.work1paper3{
-    position: absolute;
-    top:540px;
-    left:450px;
-    z-index : 200;
+.me_paper4{
     animation: fadein 1.5s;
-    animation-delay: 2.5s;
+    animation-delay: 2.75s;
+    animation-fill-mode: backwards;
+}
+
+/* --------------------------------------works----------------------------------- */
+.content_algin{
+    display: inline-block;
+}
+
+.workpaper1{
+    position: relative;
+    top: 120px;
+    left : 120px;
+    width:calc(50vw - 120px);
+}
+
+.work1paper1{
+    position: relative;
+    width : 100%;
+    height: 20vw;
+    animation: fadein 1.5s;
+    animation-delay: 0.5s;
+    animation-fill-mode: backwards;
+}
+
+.work1paper2{
+    position: absolute;
+    width : 16vw;
+    height : 16vw;
+    top : 20px;
+    right : 0px;
+    animation: fadein 1.5s;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+}
+.work1paper3{
+    position:absolute;
+    width : 16vw;
+    height : 16vw;
+    top : calc(16vw + 60px);
+    right : 0px;
+    animation: fadein 1.5s;
+    animation-delay: 1.5s;
     animation-fill-mode: backwards;
 }
 .work1paper4{
     position: absolute;
-    top:700px;
-    left:450px;
-    z-index : 200;
+    width : 16vw;
+    height : 16vw;
+    top : calc(32vw + 100px);
+    right : 0px;
     animation: fadein 1.5s;
-    animation-delay: 3s;
+    animation-delay: 2s;
     animation-fill-mode: backwards;
 }
 
-.workpaper1-1{
+.content_algins{
+    text-align: left;
+}
+
+.workpaper2{
+    display: block;
     position: absolute;
-    top: 40px;
-    left:970px;
-    color: white;
+    left : calc(50vw + 40px);
+    top: 60px;
+    width:calc(50vw - 60px);
+}
+
+.work1paper1_a{
+    position: absolute;
+    top:10px;
+    width : calc(50vw - 60px);
+    left : 0px;
+    font-size: 45px;
     animation: fadein 1.5s;
     animation-delay: 0.5s;
     animation-fill-mode: backwards;
 }
-.workpaper1-2{
+.work1paper1_b{
     position: absolute;
-    top: 140px;
-    left:970px;
-    color: white;
+    width : calc(50vw - 60px);
+    top : 100px;
+    left : 0px;
+    font-size: 30px;
+    animation: fadein 1.5s;
+    animation-delay: 0.5s;
+    animation-fill-mode: backwards;
+}
+.work1paper2_a{
+    position: absolute;
+    width : 16vw;
+    height : 16vw;
+    top : calc(20vw + 110px);
+    left : 0px;
+    font-size: 30px;
     animation: fadein 1.5s;
     animation-delay: 1s;
     animation-fill-mode: backwards;
 }
-.workpaper1-3{
-    position: absolute;
-    top: 240px;
-    left:970px;
-    color: white;
+.work1paper3_a{
+    position:absolute;
+    width : 16vw;
+    height : 16vw;
+    top : calc(36vw + 150px);
+    left : 0px;
+    font-size: 30px;
     animation: fadein 1.5s;
     animation-delay: 1.5s;
     animation-fill-mode: backwards;
 }
-.workpaper1-4{
+.work1paper4_a{
     position: absolute;
-    top: 430px;
-    left:970px;
-    color: white;
+    width : 16vw;
+    height : 16vw;
+    top : calc(52vw + 190px);
+    left : 0px;
+    font-size: 30px;
     animation: fadein 1.5s;
     animation-delay: 2s;
-    animation-fill-mode: backwards;
-}
-.workpaper1-5{
-    position: absolute;
-    top: 155px;
-    color: white;
-    animation: fadein 1.5s;
-    animation-delay: 2.5s;
-    animation-fill-mode: backwards;
-}
-.workpaper1-6{
-    position: absolute;
-    top: 155px;
-    color: white;
-    animation: fadein 1.5s;
-    animation-delay: 3s;
-    animation-fill-mode: backwards;
-}
-/* --------------work2---------------- */
-.work2paper1{
-    float: left;
-    position: absolute;
-    top:20px;
-    left:20px;
-    z-index : 200;
-    animation: fadein 1.5s;
-    animation-delay: 0.5s;
-    animation-fill-mode: backwards;
-}
-.work2paper2{
-    float: left;
-    position: absolute;
-    top:480px;
-    left:350px;
-    z-index : 200;
-    animation: fadein 1.5s;
-    animation-delay: 2s;
-    animation-fill-mode: backwards;
-}
-.workpaper2-1{
-    position: absolute;
-    top: 430px;
-    left:970px;
-    color: white;
-    animation: fadein 1.5s;
-    animation-delay: 2s;
-    animation-fill-mode: backwards;
-}
-.workpaper2-2{
-    position: absolute;
-    top: 600px;
-    left: 970px;;
-    color: white;
-    animation: fadein 1.5s;
-    animation-delay: 2.5s;
-    animation-fill-mode: backwards;
-}
-/* --------------work3---------------- */
-.work3paper1{
-    float: left;
-    position: absolute;
-    top:400px;
-    left:350px;
-    z-index : 200;
-    animation: fadein 1.5s;
-    animation-delay: 2s;
-    animation-fill-mode: backwards;
-}
-.workpaper3-1{
-    position: absolute;
-    top: 340px;
-    left:970px;
-    color: white;
-    animation: fadein 1.5s;
-    animation-delay: 2s;
-    animation-fill-mode: backwards;
-}
-.workpaper3-2{
-    position: absolute;
-    top: 510px;
-    left: 970px;;
-    color: white;
-    animation: fadein 1.5s;
-    animation-delay: 2.5s;
     animation-fill-mode: backwards;
 }
 
-@media screen and (max-width: 960px) {
-    header{
-        height: 80px;
+@media screen and (max-width: 960px){
+    .workpaper1{
+        left : 70px;
+        width:calc(50vw - 70px);
     }
-    #logo {
-       font-size:60px;
+    .work1paper1_a{
+        font-size: 30px;
+        top : 30px;
     } 
-    #social{
-        font-size:30px;
+    .work1paper2_a, .work1paper3_a, .work1paper4_a{
+        font-size: 20px;
     }
+    .work1paper1_b{
+        top : 130px;
+        font-size: 10px;
+    }
+    .work1paper2_a{
+        top :calc(20vw + 120px);
+    }
+    .work1paper3_a{
+        top :calc(36vw + 160px);
+    }
+    .work1paper4_a{
+        top : calc(52vw + 200px);
+    }
+
 
 }
 
-@media screen and (max-width: 520px) {
-    header{
-        height: 60px;
+@media screen and (max-width: 520px){
+    .workpaper1{
+        left : 20px;
+        width:calc(50vw - 20px);
     }
-    #logo {
-        font-size:40px;
+    .work1paper1_a{
+        font-size: 20px;
+        top : 40px;
+    } 
+    .work1paper1_b, .work1paper2_a, .work1paper3_a, .work1paper4_a{
+        font-size: 10px;
     }
-    #social{
-        font-size:20px;
+    .work1paper1_b{
+        top : 120px;
+    }
+    .work1paper2_a{
+        top :calc(20vw + 130px);
+    }
+    .work1paper3_a{
+        top :calc(36vw + 170px);
+    }
+    .work1paper4_a{
+        top : calc(52vw + 210px);
     }
 }

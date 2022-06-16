@@ -5,29 +5,58 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width, initial-scale=1">
         <link rel ="stylesheet" type="text/css" href="main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Akshar:wght@300&display=swap');
-            .work2paper1, .work2paper2 {border: 5px solid white; border-bottom: 15px solid white; box-shadow: 5px 5px 5px black;}
+            .work1paper1{border: 5px solid white; border-bottom: 30px solid white; box-shadow: 5px 5px 5px black;}
+            .work1paper2, .work1paper3, .work1paper4{border: 5px solid white; border-bottom: 15px solid white; box-shadow: 5px 5px 5px black;}
             body{background-color: rgb(255,175,4);}
         </style>
         <title>Wrok2</title>
     </head>
 
     <body>
-        <a class ="logo", href="index.html">Portfolio.</a>
-        <div id="workpaper1">
-            <div class="work2paper1"><img src="source/work2-1.png" width="550" style="display: block"></div>
-            <div class="work2paper2"><img src="source/work2-2.png" width="220" style="display: block"></div>
-        </div>
-        <div class="workpaper1-1"><p style="font-size: 60px;">Layout Design_1</p></div>
-        <div class="workpaper1-2"><p style="font-size: 40px;">(2019.10.11)</p></div>
-        <div class="workpaper1-3"><p style="font-size: 40px;">
-            This work was produced on October 11. 2019.<br>
-            There are various layout designs.</p>
-        </div>
-        <div class="workpaper2-1"><p style="font-size: 40px;"><br><br>
-            Layout Design_2</p></div>
-        <div class="workpaper2-2"><p style="font-size: 40px;">
-            (2019.10.11)</p></div>
+        <header>
+            <nav id="logo">
+                <a href="index.html">RyuSeungHa</a>
+            </nav>
+
+            <nav id="social">
+                <a href="https://www.instagram.com/ho9bird7/" class="fa fa-instagram"></a>
+                <a href="me.html" class="fa">Me?</a>
+            </nav>
+        </header>
+
+            <div class="workpaper1">
+                <div class="work1paper1" style="float:right"><img id = "size" src="source/work2-1.png"></div>
+            </div>
+
+            <div class ="content_algin">
+                <div class = "workpaper1">
+                    <div class="work1paper2", style="float:right;"><img id = "size" src="source/work2-2.png"></div>
+                </div>
+            </div>
+
+            
+
+            <div class ="content_algins">
+                <div class = "workpaper2">
+                    <p class="work1paper1_a", style="float:left;">
+                        Layout Design_1</p>
+                </div>
+
+                <div class = "workpaper2">
+                    <p class="work1paper1_b", style="float:left;">
+                        (2019.10.11)<br>
+                        This work was produced on October 11. 2019.<br>
+                        There are various layout designs.</p>
+                </div>
+
+                <div class = "workpaper2">
+                    <p class="work1paper2_a", style="float:left;">
+                        Layout Design_2<br>
+                        (2019.10.11)</p>
+                </div>
+            </div>
     </body>
 </html>
