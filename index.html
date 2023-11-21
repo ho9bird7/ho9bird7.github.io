@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>SunRise</title>
+        <title>CUP</title>
         <meta charset="utf-8">
         <meta name="viewport" content=""width = device-width, initial-scale="1.0">
         <style>
@@ -22,9 +22,9 @@
             .alginBox{
                 font-family: arial;
                 font-size: 24px;
-                margin-left:2vw;
+                margin-left:10vw;
                 margin-top: 3vh;
-                width : 96vw;
+                width : 80vw;
                 height : 94vh;
                 outline: dashed var(--dashed_box) black;
                 display: flex;
@@ -32,16 +32,16 @@
                 align-items: center;
             }
             .child {
-                margin-top:50vw;
-                width: 65vw;
-                height: 65vw;
+                margin-top:40vw;
+                width: 60vw;
+                height: 60vw;
                 outline: dashed var(--dashed_box) black;
                 transform: rotate( -45deg );
             }
             .ground{
                 position : absolute;
                 margin-top:66vh;
-                margin-left: 2vw;
+                margin-left: 10vw;
                 width : 100vw;
                 height:37vh;
                 outline: dashed var(--dashed_box) black;
@@ -87,8 +87,8 @@
                 outline: dashed var(--dashed_box) black;
             }
             .moonBox{
-                margin-top : 61vw;
-                margin-left : 61vw;
+                margin-top : 56vw;
+                margin-left : 56vw;
                 width : 8vw;
                 height : 8vw;
                 outline: dashed var(--dashed_box) black;
@@ -121,7 +121,7 @@
                 --dashed_box : 1px; 
                 --shadowBox_X1 : 0px;
                 --shadowBox_X2 : 0px;
-                --opacity_shadow : 0.1;
+                --opacity_shadow : 0;
             }
             #svg_moonLeft path{
                 d: path(var(--moonLeft_CSS));
@@ -141,17 +141,50 @@
                 width : 100%;
                 height : 100%;
             }
+            .cupBox{
+                position:absolute;
+                justify-content: center;
+                text-align: center;
+                top :-17.7vw;
+                left: 41.6vw;
+                width : 16.8vw;
+                height : 27.5vw;
+                outline: dashed var(--dashed_box) black;
+            }
+            .cup1{
+                fill: none;
+                stroke: #000;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-width: 11px;
+            }
+            .cup2{
+                fill: none;
+                stroke: #000;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-width: 3px;
+
+            }
+            .cup3{
+                stroke: #000;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-width: 11px;
+                fill: var(--background_Color);
+            }
             .shadow{
-                position : relative;
+                position : absolute;
                 justify-content: center;
                 text-align: center;
                 top :7vw;
             }
             .shadowBox{
+                position : absolute;
                 margin : 0;
                 padding : 0;
                 left: 30vw;
-                width : 40vw;;
+                width : 40vw;
                 height : 15vw;
                 stroke-linecap: round;
                 stroke-miterlimit: 10;
@@ -161,7 +194,6 @@
                 text-align: center;
                 opacity:var(--opacity_shadow);
             }
-
         </style>
     </head>
 
@@ -182,22 +214,22 @@
                 per = Math.floor(window.scrollY / scrollable * 360);
             }
             function opac(){
-                if(per > 0 && per < 20){
-                    shadowOpacity = per * 0.05;
-                }else if(per > 19 && per < 161){
+                if(per > 0 && per < 40){
+                    shadowOpacity = per * 0.025;
+                }else if(per > 39 && per < 141){
                     shadowOpacity = 1;
-                }else if(per > 160 && per < 180){
-                    shadowOpacity = (1 - (per-160) * 0.05);
+                }else if(per > 140 && per < 180){
+                    shadowOpacity = (1 - (per-140) * 0.025);
                 }else{
                     shadowOpacity = 0;
                 }
                 theme.style.setProperty('--opacity_shadow',shadowOpacity);
-                console.log(shadowOpacity);
+                // console.log(shadowOpacity);
             }
             function shadow(){
                 groundSelect = document.querySelector('.ground');
                 groundWidth = groundSelect.offsetWidth;
-                groundWidthVW = parseInt(groundWidth * 0.01);
+                groundWidthVW = groundWidth * 0.01;
                 shadowX1 =  groundWidthVW * 14;
                 shadowX2 = groundWidthVW * 26;
                 shadowY = groundWidthVW * 15;
@@ -209,6 +241,8 @@
                 }
                 //----------------------------------------Shadow----------------------------------------
                 // var groundWidth = document.getElementsByClassName('ground').offsetHeight;
+                console.log(groundWidthVW);
+                console.log(groundWidth);
             }
 
             window.addEventListener('scroll', function(){
@@ -303,6 +337,7 @@
                     </div>
                 </div>
                 <div class ="ground">
+                    
                     <div class = "shadow">
                         <svg class = "shadowBox" id = "svg_shadowBox" veiwBox="0 0 100 100">
                             <path  d = "M 0 0, L 100 0, L 180 150, L 300 150, L 170 0" fill="url(#grad1)"/>
@@ -315,7 +350,15 @@
                             <!-- fill="url(#grad1)" -->
                             
                           </svg>
-                </div>
+                    </div>
+                    <div class = "cupBox">
+                        <svg class ="cupOfGlass" viewBox="0 0 365 582">
+                            <path class="cup3" d="m359.5,73.5h-.02c0-.17.02-.33.02-.5,0-37.28-79.25-67.5-177-67.5S5.5,35.72,5.5,73c0,.17.01.33.02.5h-.02c0,.07.02.14.02.22.04,1.49.2,2.98.49,4.45,16.44,149.94,32.88,299.89,49.32,449.83,0,26.78,56.94,48.5,127.17,48.5s127.17-21.71,127.17-48.5c16.44-149.94,32.88-299.89,49.32-449.83.29-1.47.45-2.95.49-4.45,0-.07.02-.14.02-.22Z"/>
+                            <ellipse class="cup1" cx="182.5" cy="72.85" rx="176.6" ry="67.35"/>
+                            <ellipse class="cup2" cx="182.5" cy="517.62" rx="105.03" ry="40.05"/>
+                            <ellipse class="cup2" cx="182.5" cy="226.7" rx="138" ry="52.63"/>
+                        </svg>
+                        </div>
             </div>
         </div>     
 
