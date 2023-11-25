@@ -118,7 +118,7 @@
                 --moonRight_CSS : "M 50 0 C 117 0, 117 100, 50 100";
                 --background_Color : rgb(126.9 ,126.9, 126.9);
                 /*----------------------------------------dashedController----------------------------------------*/
-                --dashed_box : 0px; 
+                --dashed_box : 1px; 
                 --shadowBox_X1 : 0px;
                 --shadowBox_X2 : 0px;
                 --opacity_shadow : 0;
@@ -199,8 +199,8 @@
                 position : absolute;
                 margin : 0;
                 padding : 0;
-                left: 30vw;
-                width : 40vw;
+                left: 20vw;
+                width : 60vw;
                 height : 15vw;
                 stroke-linecap: round;
                 stroke-miterlimit: 10;
@@ -261,13 +261,13 @@
                 groundSelect = document.querySelector('.ground');
                 groundWidth = groundSelect.offsetWidth;
                 groundWidthVW = groundWidth * 0.01;
-                shadowX1 =  groundWidthVW * 14;
-                shadowX2 = groundWidthVW * 26;
+                shadowX1 =  groundWidthVW * 24;
+                shadowX2 = groundWidthVW * 36;
                 shadowY = groundWidthVW * 15;
 
                 if(per<180){
-                    shadowXX1 =groundWidthVW*20 - per * 0.11 * groundWidthVW;
-                    shadowXX2 = groundWidthVW * 20 + shadowXX1;
+                    shadowXX1 =groundWidthVW * 30 - per * 0.17 * groundWidthVW;
+                    shadowXX2 = groundWidthVW * 30 + shadowXX1;
                     theme.style.setProperty('--shadow', '"M '+shadowX1+' 0, L '+shadowXX1+' '+shadowY+', L '+shadowXX2+' '+shadowY+', L '+shadowX2+' 0"');
                 }
                 
@@ -278,7 +278,7 @@
             //----------------------------------------cupLight----------------------------------------
             function cupLight(){
                 cupLightX = per*0.0933;
-                // console.log(cupLightX);
+                console.log(cupLightX);
             }
             window.addEventListener('scroll', function(){
 
@@ -417,7 +417,7 @@
                 </div>
             </div>
             <div id = "browserCheck" style="color:white; font-size: 50px;">
-                Not available on the Safari
+                Not available in the Safari
             </div>
         </script>
     </body>
