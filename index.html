@@ -227,6 +227,11 @@
                 var scrollable = bodyHeight - window.innerHeight;
                 var progressEl = document.querySelector('#scrollBox');
                 per = Math.floor(window.scrollY / scrollable * 360);
+                let hii = getBrowserInfo();
+            //----------------------------------------browserCheck----------------------------------------
+                console.log(hii);
+                const tmp = document.getElementById("browserCheck");
+                tmp.textContent = hii;
             }
             //----------------------------------------ShadowOpacity----------------------------------------
             function opac(){
@@ -341,16 +346,16 @@
                     return 'FIREFOX';  
                 }else if(agent.indexOf('EDG') >= 0) {
                     return 'EDGE';
-                } else if (agent.indexOf('SAFARI') >= 0) {
+                } else if (agent.indexOf('crios') >= 0) {
                     return 'SAFARI';
                 } else if (agent.indexOf('CHROME') >= 0) {
                     return 'CHROME';    
                 } else { 
                     return '';
                 }
-                
+
             }
-            console.log(getBrowserInfo());
+            
         </script>
             <div class = "centerBox">
                 <div class ="alginBox">
@@ -400,7 +405,9 @@
                             <ellipse class="cup2" cx="182.5" cy="226.7" rx="138" ry="52.63"/>
                         </svg>
                     </div>
-                    <h1>...</h1>
+                    <div id = "browserCheck">
+                        <h1>...</h1>
+                    </div>
                 </div>
             </div>
         </script>
