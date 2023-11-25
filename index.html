@@ -338,10 +338,10 @@
             });
             
             function getBrowserInfo(){ 
-            var agent = navigator.userAgent.toUpperCase();
-            console.log(agent);
-            if (agent.indexOf('TRIDENT') >= 0) {
-                return 'IE';
+                var agent = navigator.userAgent.toUpperCase();
+                console.log(agent);
+                if(agent.indexOf('TRIDENT') >= 0){
+                    return 'IE';
                 }else if(agent.indexOf('FIREFOX') >= 0) {
                     return 'FIREFOX';  
                 }else if(agent.indexOf('EDG') >= 0) {
@@ -351,9 +351,8 @@
                 } else if (agent.indexOf('CHROME') >= 0) {
                     return 'CHROME';    
                 } else { 
-                    return '';
+                    return 'none';
                 }
-
             }
             
         </script>
