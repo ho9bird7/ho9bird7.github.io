@@ -346,10 +346,12 @@
                     return 'FIREFOX';  
                 }else if(agent.indexOf('EDG') >= 0) {
                     return 'EDGE';
-                } else if (agent.indexOf('crios') >= 0) {
-                    return 'SAFARI';
-                } else if (agent.indexOf('CHROME') >= 0) {
-                    return 'CHROME';    
+                } else if (agent.indexOf('SAFARI') >= 0) {
+                    if(agent.indexOf("CHROME") >= 0){
+                        return 'CHROME';  
+                    }else{
+                        return "SAFARI";
+                    }   
                 } else { 
                     return 'none';
                 }
