@@ -31,7 +31,7 @@
                 justify-content: center;
                 align-items: center;
             }
-            .child {
+            .child{
                 margin-top:40vw;
                 width: 60vw;
                 height: 60vw;
@@ -118,7 +118,7 @@
                 --moonRight_CSS : "M 50 0 C 117 0, 117 100, 50 100";
                 --background_Color : rgb(126.9 ,126.9, 126.9);
                 /*----------------------------------------dashedController----------------------------------------*/
-                --dashed_box : 1px; 
+                --dashed_box : 0px; 
                 --shadowBox_X1 : 0px;
                 --shadowBox_X2 : 0px;
                 --opacity_shadow : 0;
@@ -142,14 +142,29 @@
                 height : 100%;
             }
             .cupBox{
-                position:absolute;
+                position : absolute;
                 justify-content: center;
                 text-align: center;
                 top :-17.7vw;
                 left: 41.6vw;
                 width : 16.8vw;
                 height : 27.5vw;
-                outline: dashed var(--dashed_box) black;
+                outline : dashed var(--dashed_box) black;
+            }
+            .cupLight{
+                position : absolute;
+                left : 0;
+                width : 16.8vw;
+                height : 6.7vw;
+                outline : dashed var(--dashed_box) black;
+            }
+            .lightTest{
+                position:absolute;
+                justify-content: center;
+                text-align: center;
+                width : 100px;
+                height : 100px;
+                color : red;
             }
             .cup1{
                 fill: none;
@@ -200,12 +215,12 @@
 
     <body>
         <script>
-            var per, moonLeft, moonRight, cl,shadowBox, shadowX1, shadowX2, shadowY, shadowXX1, shadowXX2, shadowOpacity;
+            var per, moonLeft, moonRight, cl,shadowBox, shadowX1, shadowX2, shadowY, shadowXX1, shadowXX2, shadowOpacity, cupLightX, cupLightY;
 
             let theme = document.querySelector(':root');
             let styles = getComputedStyle(theme);
 
-            setTimeout(function() {start(),opac(),shadow();}, 1);
+            setTimeout(function() {start(),opac(),shadow(),cupLight();}, 1);
             function start(){
                 var bodyEl = document.querySelector('body');
                 var bodyHeight = bodyEl.offsetHeight;
@@ -213,6 +228,7 @@
                 var progressEl = document.querySelector('#scrollBox');
                 per = Math.floor(window.scrollY / scrollable * 360);
             }
+            //----------------------------------------ShadowOpacity----------------------------------------
             function opac(){
                 if(per > 0 && per < 40){
                     shadowOpacity = per * 0.025;
@@ -226,6 +242,7 @@
                 theme.style.setProperty('--opacity_shadow',shadowOpacity);
                 // console.log(shadowOpacity);
             }
+            //----------------------------------------Shadow----------------------------------------
             function shadow(){
                 groundSelect = document.querySelector('.ground');
                 groundWidth = groundSelect.offsetWidth;
@@ -239,12 +256,16 @@
                     shadowXX2 = groundWidthVW * 20 + shadowXX1;
                     theme.style.setProperty('--shadow', '"M '+shadowX1+' 0, L '+shadowXX1+' '+shadowY+', L '+shadowXX2+' '+shadowY+', L '+shadowX2+' 0"');
                 }
-                //----------------------------------------Shadow----------------------------------------
+                
                 // var groundWidth = document.getElementsByClassName('ground').offsetHeight;
-                console.log(groundWidthVW);
-                console.log(groundWidth);
+                // console.log(groundWidthVW);
+                // console.log(groundWidth);
             }
-
+            //----------------------------------------cupLight----------------------------------------
+            function cupLight(){
+                cupLightX = per*0.0933;
+                // console.log(cupLightX);
+            }
             window.addEventListener('scroll', function(){
 
                 //---------------------------------------rotate box----------------------------------------
@@ -290,6 +311,7 @@
                 theme.style.setProperty('--background_Color', 'rgb('+ cl +', '+ cl +', '+ cl +')');
                 opac();
                 shadow();
+                cupLight();
                  
                 //----------------------------------------debug----------------------------------------
                 // console.log(shadowX1, shadowX2);
@@ -307,21 +329,40 @@
                 groundWidthVW = parseInt(groundWidth * 0.01);
                 shadow();
                 opac();
+                cupLight();
             });
             
-
-       </script>
-        <div class = "centerBox">
-            <div class ="alginBox">
-                <div class = "child">
-                    <div class = "sunBox">
-                        <svg class = "sunFire" viewBox="-5 -5 110 110">
-                            <path class="sunFireShape" d="m98.67,46.81c-1.72-1.15-3.33-2.5-4.76-4.03-.51-.54-.66-1.32-.4-2.01.74-1.97,1.7-3.83,2.86-5.55,1.63-2.43.27-5.73-2.6-6.3-2.08-.41-4.13-1.06-6.08-1.96-.67-.31-1.1-.95-1.13-1.69-.09-2.2.08-4.39.51-6.52.57-2.86-1.96-5.38-4.81-4.8-2.09.42-4.23.6-6.39.51-.74-.03-1.4-.47-1.7-1.15-.85-1.89-1.47-3.86-1.87-5.86-.57-2.87-3.86-4.24-6.3-2.61-1.72,1.15-3.57,2.11-5.54,2.85-.68.26-1.45.12-1.99-.38-1.64-1.5-3.08-3.18-4.29-5.01-1.61-2.42-5.18-2.42-6.8,0-1.21,1.81-2.63,3.49-4.26,4.98-.54.49-1.31.64-2,.38-1.94-.74-3.78-1.69-5.48-2.83-2.43-1.63-5.73-.26-6.3,2.61-.4,2-1.02,3.97-1.86,5.85-.3.67-.96,1.12-1.69,1.15-2.19.09-4.36-.09-6.47-.51-2.85-.57-5.38,1.95-4.81,4.8.43,2.15.61,4.36.51,6.59-.03.72-.48,1.35-1.13,1.64-2.13.97-4.36,1.65-6.63,2.05-2.97.52-4.34,3.99-2.57,6.43,1.23,1.7,2.28,3.55,3.1,5.52.3.71.14,1.53-.39,2.08-1.51,1.57-3.19,2.93-5,4.08-2.56,1.63-2.5,5.36.09,6.95,1.98,1.22,3.82,2.7,5.45,4.41.5.53.67,1.29.43,1.97-.72,2.07-1.68,4.02-2.85,5.82-1.59,2.45-.16,5.73,2.71,6.25,2.07.37,4.1.99,6.05,1.84.68.3,1.13.95,1.16,1.69.1,2.08-.05,4.15-.42,6.17-.53,2.88,2.03,5.37,4.89,4.74,2.05-.45,4.16-.66,6.28-.62.73.01,1.39.43,1.71,1.09.89,1.84,1.57,3.75,2.03,5.71.64,2.74,3.82,3.98,6.19,2.46,1.78-1.14,3.7-2.08,5.73-2.79.66-.23,1.4-.09,1.92.38,1.54,1.36,2.91,2.88,4.09,4.53,1.63,2.28,5.04,2.22,6.64-.08,1.07-1.55,2.31-2.99,3.7-4.29.53-.5,1.3-.66,1.98-.41,2.08.76,4.04,1.76,5.85,2.97,2.42,1.62,5.72.26,6.28-2.6.42-2.14,1.1-4.24,2.04-6.25.31-.67.97-1.1,1.7-1.12,2.1-.07,4.18.11,6.21.52,2.87.58,5.39-1.95,4.82-4.82-.4-2-.58-4.06-.52-6.13.02-.74.46-1.4,1.13-1.71,1.96-.9,4.01-1.56,6.1-1.97,2.86-.56,4.23-3.86,2.61-6.28-1.21-1.81-2.21-3.76-2.97-5.84-.25-.68-.09-1.45.41-1.98,1.47-1.58,3.1-2.97,4.87-4.14,2.43-1.62,2.42-5.19,0-6.81Zm-81.97,3.58c0-18.84,15.27-34.12,34.12-34.12,16.43,0,30.14,11.61,33.39,27.07.02.1.04.2.06.3.02.1.04.2.06.3,2.89,15.4-5.18,31.25-20.13,37.64-17.05,7.29-36.94-.47-44.53-17.39-1.06-2.37-1.83-4.8-2.33-7.24-.41-2.13-.63-4.32-.63-6.57Z"/><path/>
-                        </svg>
-                        <svg viewBox="0 0 200 200">
-                            <circle class = "sunBall" cx="100" cy="100" r="50" />
-                          </svg>
-                    </div>
+            function getBrowserInfo(){ 
+            var agent = navigator.userAgent.toUpperCase();
+            console.log(agent);
+            if (agent.indexOf('TRIDENT') >= 0) {
+                return 'IE';
+                }else if(agent.indexOf('FIREFOX') >= 0) {
+                    return 'FIREFOX';  
+                }else if(agent.indexOf('EDG') >= 0) {
+                    return 'EDGE';
+                } else if (agent.indexOf('SAFARI') >= 0) {
+                    return 'SAFARI';
+                } else if (agent.indexOf('CHROME') >= 0) {
+                    return 'CHROME';    
+                } else { 
+                    return '';
+                }
+                
+            }
+            console.log(getBrowserInfo());
+        </script>
+            <div class = "centerBox">
+                <div class ="alginBox">
+                    <div class = "child">
+                        <div class = "sunBox">
+                            <svg class = "sunFire" viewBox="-5 -5 110 110">
+                                <path class="sunFireShape" d="m98.67,46.81c-1.72-1.15-3.33-2.5-4.76-4.03-.51-.54-.66-1.32-.4-2.01.74-1.97,1.7-3.83,2.86-5.55,1.63-2.43.27-5.73-2.6-6.3-2.08-.41-4.13-1.06-6.08-1.96-.67-.31-1.1-.95-1.13-1.69-.09-2.2.08-4.39.51-6.52.57-2.86-1.96-5.38-4.81-4.8-2.09.42-4.23.6-6.39.51-.74-.03-1.4-.47-1.7-1.15-.85-1.89-1.47-3.86-1.87-5.86-.57-2.87-3.86-4.24-6.3-2.61-1.72,1.15-3.57,2.11-5.54,2.85-.68.26-1.45.12-1.99-.38-1.64-1.5-3.08-3.18-4.29-5.01-1.61-2.42-5.18-2.42-6.8,0-1.21,1.81-2.63,3.49-4.26,4.98-.54.49-1.31.64-2,.38-1.94-.74-3.78-1.69-5.48-2.83-2.43-1.63-5.73-.26-6.3,2.61-.4,2-1.02,3.97-1.86,5.85-.3.67-.96,1.12-1.69,1.15-2.19.09-4.36-.09-6.47-.51-2.85-.57-5.38,1.95-4.81,4.8.43,2.15.61,4.36.51,6.59-.03.72-.48,1.35-1.13,1.64-2.13.97-4.36,1.65-6.63,2.05-2.97.52-4.34,3.99-2.57,6.43,1.23,1.7,2.28,3.55,3.1,5.52.3.71.14,1.53-.39,2.08-1.51,1.57-3.19,2.93-5,4.08-2.56,1.63-2.5,5.36.09,6.95,1.98,1.22,3.82,2.7,5.45,4.41.5.53.67,1.29.43,1.97-.72,2.07-1.68,4.02-2.85,5.82-1.59,2.45-.16,5.73,2.71,6.25,2.07.37,4.1.99,6.05,1.84.68.3,1.13.95,1.16,1.69.1,2.08-.05,4.15-.42,6.17-.53,2.88,2.03,5.37,4.89,4.74,2.05-.45,4.16-.66,6.28-.62.73.01,1.39.43,1.71,1.09.89,1.84,1.57,3.75,2.03,5.71.64,2.74,3.82,3.98,6.19,2.46,1.78-1.14,3.7-2.08,5.73-2.79.66-.23,1.4-.09,1.92.38,1.54,1.36,2.91,2.88,4.09,4.53,1.63,2.28,5.04,2.22,6.64-.08,1.07-1.55,2.31-2.99,3.7-4.29.53-.5,1.3-.66,1.98-.41,2.08.76,4.04,1.76,5.85,2.97,2.42,1.62,5.72.26,6.28-2.6.42-2.14,1.1-4.24,2.04-6.25.31-.67.97-1.1,1.7-1.12,2.1-.07,4.18.11,6.21.52,2.87.58,5.39-1.95,4.82-4.82-.4-2-.58-4.06-.52-6.13.02-.74.46-1.4,1.13-1.71,1.96-.9,4.01-1.56,6.1-1.97,2.86-.56,4.23-3.86,2.61-6.28-1.21-1.81-2.21-3.76-2.97-5.84-.25-.68-.09-1.45.41-1.98,1.47-1.58,3.1-2.97,4.87-4.14,2.43-1.62,2.42-5.19,0-6.81Zm-81.97,3.58c0-18.84,15.27-34.12,34.12-34.12,16.43,0,30.14,11.61,33.39,27.07.02.1.04.2.06.3.02.1.04.2.06.3,2.89,15.4-5.18,31.25-20.13,37.64-17.05,7.29-36.94-.47-44.53-17.39-1.06-2.37-1.83-4.8-2.33-7.24-.41-2.13-.63-4.32-.63-6.57Z"/><path/>
+                            </svg>
+                            <svg viewBox="0 0 200 200">
+                                <circle class = "sunBall" cx="100" cy="100" r="50" />
+                            </svg>
+                        </div>
                         <div class = "moonBox">
                             <div id = "ttt">
                                 <svg id = "svg_moonLeft" viewBox = "-10 -10 120 120" >
@@ -337,20 +378,17 @@
                     </div>
                 </div>
                 <div class ="ground">
-                    
                     <div class = "shadow">
                         <svg class = "shadowBox" id = "svg_shadowBox" veiwBox="0 0 100 100">
-                            <path  d = "M 0 0, L 100 0, L 180 150, L 300 150, L 170 0" fill="url(#grad1)"/>
-                            <defs>
-                              <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:rgb(0, 0, 0);stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:rgb(0, 0, 0);stop-opacity:0" />
-                              </linearGradient>
-                            </defs>
-                            <!-- fill="url(#grad1)" -->
-                            
-                          </svg>
-                    </div>
+                            <path d = "M 0 0, L 100 0, L 180 150, L 300 150, L 170 0" fill="url(#grad1)"/>
+                                <defs>
+                                    <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:rgb(0, 0, 0);stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:rgb(0, 0, 0);stop-opacity:0" />
+                                    </linearGradient>
+                                </defs>              
+                            </svg>
+                        </div>
                     <div class = "cupBox">
                         <svg class ="cupOfGlass" viewBox="0 0 365 582">
                             <path class="cup3" d="m359.5,73.5h-.02c0-.17.02-.33.02-.5,0-37.28-79.25-67.5-177-67.5S5.5,35.72,5.5,73c0,.17.01.33.02.5h-.02c0,.07.02.14.02.22.04,1.49.2,2.98.49,4.45,16.44,149.94,32.88,299.89,49.32,449.83,0,26.78,56.94,48.5,127.17,48.5s127.17-21.71,127.17-48.5c16.44-149.94,32.88-299.89,49.32-449.83.29-1.47.45-2.95.49-4.45,0-.07.02-.14.02-.22Z"/>
@@ -358,10 +396,13 @@
                             <ellipse class="cup2" cx="182.5" cy="517.62" rx="105.03" ry="40.05"/>
                             <ellipse class="cup2" cx="182.5" cy="226.7" rx="138" ry="52.63"/>
                         </svg>
-                        </div>
+                        <svg class ="cupLight">
+                            <ellipse class="cup2" cx="182.5" cy="226.7" rx="138" ry="52.63"/>
+                        </svg>
+                    </div>
+                    <h1>...</h1>
+                </div>
             </div>
-        </div>     
-
-        <!-- <div id = "scrollBox"></div> -->
+        </script>
     </body>
 </html>
