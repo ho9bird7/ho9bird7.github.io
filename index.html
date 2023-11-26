@@ -118,11 +118,14 @@
                 --moonRight_CSS : "M 50 0 C 117 0, 117 100, 50 100";
                 --background_Color : rgb(126.9 ,126.9, 126.9);
                 /*----------------------------------------dashedController----------------------------------------*/
-                --dashed_box : 1px; 
+                --dashed_box : 0px; 
                 --shadowBox_X1 : 0px;
                 --shadowBox_X2 : 0px;
                 --opacity_shadow : 0;
                 --safari : 1;
+                --cupLightX : 0;
+                --cupLightY : 0;
+                --opacity_cupLight : 0;
             }
             #svg_moonLeft path{
                 d: path(var(--moonLeft_CSS));
@@ -152,12 +155,29 @@
                 height : 27.5vw;
                 outline : dashed var(--dashed_box) black;
             }
+            .cupLightBox{
+                position : absolute;
+                left : var(--cupLightX);
+                top : var(--cupLightY);
+                opacity: var(--opacity_cupLight);
+                width : 3vw;
+                height : 3vw;
+                outline: dashed var(--dashed_box) red;
+            }
             .cupLight{
                 position : absolute;
                 left : 0;
+                top : 0;
                 width : 16.8vw;
                 height : 6.7vw;
                 outline : dashed var(--dashed_box) black;
+            }
+            .cupLightSVG{
+                stroke-linecap: round;
+                stroke: white;
+                stroke-width: 7px;
+                fill : none;
+                stroke-linecap: round;
             }
             .lightTest{
                 position:absolute;
@@ -225,7 +245,7 @@
 
     <body>
         <script>
-            var per, moonLeft, moonRight, cl,shadowBox, shadowX1, shadowX2, shadowY, shadowXX1, shadowXX2, shadowOpacity, cupLightX, cupLightY;
+            var per, groundWidthVW, moonLeft, moonRight, cl,shadowBox, shadowX1, shadowX2, shadowY, shadowXX1, shadowXX2, shadowOpacity, cupLightX, cupLightY, cupLightOpacity;
 
             let theme = document.querySelector(':root');
             let styles = getComputedStyle(theme);
@@ -253,7 +273,22 @@
                 }else{
                     shadowOpacity = 0;
                 }
+
+
+                if(per > 180 && per < 220){
+                    cupLightOpacity = (per-180) * 0.025;
+                }else if(per > 219 && per < 321){
+                    cupLightOpacity = 1;
+                }else if(per > 320 && per < 359){
+                    cupLightOpacity = (1 - (per-320) * 0.025);
+                }else if(per == 359){
+                    cupLightOpacity = 0;
+                }else{
+                    cupLightOpacity = 0;
+                }
+                
                 theme.style.setProperty('--opacity_shadow',shadowOpacity);
+                theme.style.setProperty('--opacity_cupLight',cupLightOpacity);
                 // console.log(shadowOpacity);
             }
             //----------------------------------------Shadow----------------------------------------
@@ -273,13 +308,34 @@
                 
                 // var groundWidth = document.getElementsByClassName('ground').offsetHeight;
                 // console.log(groundWidthVW);
-                // console.log(groundWidth);
+                // console.log(groundWidth);}else if(per>265 && per < 275){ cupLightY = 5.2 *groundWidthVW;
             }
             //----------------------------------------cupLight----------------------------------------
             function cupLight(){
-                cupLightX = per*0.0933;
-                console.log(cupLightX);
+                var Cper;
+                if(per>179 && per<270){
+                    cupLightY = (1.85 + Math.sqrt((per-180)*0.1246))*groundWidthVW;
+                }else if(per>269){
+                    cupLightY = (1.85 + Math.sqrt((360-per)*0.1246))*groundWidthVW;
+                }
+                if(per > 180){
+                    
+                    cupLightX = (15.3-(per-180)*0.093)*groundWidthVW;
+                }
+                theme.style.setProperty('--cupLightX',cupLightX+'px')
+                theme.style.setProperty('--cupLightY',cupLightY+'px')
+                // console.log(cupLightX,cupLightY);
             }
+
+            //     function cupLight(){
+            //     if(per>180 && per<270){
+            //         cupLightY = 46.8/(per-180);
+            //     }else if(per > 269){
+            //         cupLightY = (5.2 - (per-270)*0.03)*groundWidthVW;
+            //     }
+            //     theme.style.setProperty('--cupLightY',cupLightY+'px')
+            //     console.log(cupLightY);
+            // }
             window.addEventListener('scroll', function(){
 
                 //---------------------------------------rotate box----------------------------------------
@@ -331,7 +387,7 @@
                 // console.log(shadowX1, shadowX2);
                 // console.log(per, moonLeft , moonRight);
                 // console.log(per,nowDeg,sunDeg);
-                // console.log(per, cl);
+                console.log(per);
                 // document.body.style.backgroundColor = 'rgb(' + cl + ',' + cl + ',' + cl + ')';
                 // console.log(styles.getPropertyValue('--background_Color'));
                 // console.log(per,  groundWidthVW,shadowXX1,shadowXX2);
@@ -410,9 +466,16 @@
                             <ellipse class="cup2" cx="182.5" cy="517.62" rx="105.03" ry="40.05"/>
                             <ellipse class="cup2" cx="182.5" cy="226.7" rx="138" ry="52.63"/>
                         </svg>
-                        <svg class ="cupLight">
-                            <ellipse class="cup2" cx="182.5" cy="226.7" rx="138" ry="52.63"/>
-                        </svg>
+                        <div class ="cupLight">
+                            <div class = "cupLightBox">
+                                <svg viewBox = "0 0 100 100">
+                                    <path class = "cupLightSVG" d = "M 10 50, Q 50 50 50 10"></path>
+                                    <path class = "cupLightSVG" d = "M 10 50, Q 50 50 50 90"></path>
+                                    <path class = "cupLightSVG" d = "M 90 50, Q 50 50 50 10"></path>
+                                    <path class = "cupLightSVG" d = "M 90 50, Q 50 50 50 90"></path>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
