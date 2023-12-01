@@ -4,6 +4,9 @@
         <title>CUP</title>
         <meta charset="utf-8">
         <meta name="viewport" content=""width = device-width, initial-scale="1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
         <style>
             /* 배치 */
             html,body{
@@ -26,7 +29,7 @@
                 margin-top: 3vh;
                 width : 80vw;
                 height : 94vh;
-                outline: dashed var(--dashed_box) black;
+                outline: dashed var(--dashed_box) blue;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -38,16 +41,17 @@
                 outline: dashed var(--dashed_box) black;
                 transform: rotate( -45deg );
             }
+           
             .ground{
                 position : absolute;
-                margin-top:66vh;
+                margin-top:70vh;
                 margin-left: 10vw;
                 width : 100vw;
-                height:37vh;
+                height:30vw;
                 outline: dashed var(--dashed_box) black;
                 background-color: var(--background_Color);
             }
-
+            
             /* 애니메이션,SVG */
             .algin{ 
                 position : fixed;
@@ -94,12 +98,96 @@
                 outline: dashed var(--dashed_box) black;
             }
             .moonShape{
-                fill : none;
+                fill : var(--background_Color);
                 stroke : #ffffff;
                 stroke-linecap: round;
                 stroke-miterlimit: 10;
                 stroke-width: 7px;
             }
+
+            .idleMoon ,.idleSun{
+                position : absolute;
+                height : 100%;
+                width : 100%;
+                outline : dashed var(--dashed_box) magenta;
+                
+            }
+            .idleSun{
+                height : 100vh;
+                width : 100vw;
+                opacity: var(--twinkleOpacity);
+                /* background-color: red; */
+            }
+            .idleSunP{
+                position:absolute;
+                top : 0px;
+                left : 0px;
+                opacity : var(--idleSunOpacity);
+            }
+            .idleSunCloud1{
+                position : absolute;
+                width : 12.66vw;
+                height : 8.64vw;
+                top: 3vw;
+                z-index : -1;
+            }
+            .idleSunCloud2{
+                position : absolute;
+                width : 10.55vw;
+                height : 7.2vw;
+                top: 8vw;
+               
+            }
+            .idleSunCloud3{
+                position : absolute;
+                
+                width : 16.88vw;
+                height : 11.52vw;
+                top: 1vw;
+                z-index : 1;
+            }
+            .idleSunCloud1{
+                left : var(--idleSunCloud1);
+            }
+            .idleSunCloud2{
+                left : var(--idleSunCloud2);
+            }
+            .idleSunCloud3{
+                left : var(--idleSunCloud3);
+            }
+            .idleSunID1{
+                position :absolute;
+                height : 422px;
+                height : 288px;
+                fill : var(--background_Color);
+                stroke : #000000;
+                stroke-linecap: round;
+                stroke-miterlimit: 10;
+                stroke-width: 7px;
+            }
+
+            .idleMoon{
+                opacity: var(--twinkleOpacity);
+            }
+            .idleMoonP{
+                opacity : var(--idleMoonOpacityP);
+            }
+            #idleMoon1,#idleMoon2,#idleMoon3,#idleMoon4,#idleMoon5,#idleMoon6{
+                position : absolute;
+                height : 4vw;
+                width : 4vw;
+            }
+
+
+           
+
+            #idleMoon1{left : var(--idleMoon1X); top : var(--idleMoon1Y); opacity : var(--idleMoon1Opacity);}
+            #idleMoon2{left : var(--idleMoon2X); top : var(--idleMoon2Y); opacity : var(--idleMoon2Opacity);}
+            #idleMoon3{left : var(--idleMoon3X); top : var(--idleMoon3Y); opacity : var(--idleMoon3Opacity);}
+            #idleMoon4{left : var(--idleMoon4X); top : var(--idleMoon4Y); opacity : var(--idleMoon4Opacity);}
+            #idleMoon5{left : var(--idleMoon5X); top : var(--idleMoon5Y); opacity : var(--idleMoon5Opacity);}
+            #idleMoon6{left : var(--idleMoon6X); top : var(--idleMoon6Y); opacity : var(--idleMoon6Opacity);}
+
 
             @keyframes rotate_image{100% {transform: rotate(360deg);}}
             @keyframes rotate_box{100% {transform: rotate(-360deg);}}
@@ -123,9 +211,36 @@
                 --shadowBox_X2 : 0px;
                 --opacity_shadow : 0;
                 --safari : 1;
+                --fireFox : 1;
                 --cupLightX : 0;
                 --cupLightY : 0;
                 --opacity_cupLight : 0;
+
+                --idleMoon1X : 0;
+                --idleMoon2X : 0;
+                --idleMoon3X : 0;
+                --idleMoon4X : 0;
+                --idleMoon5X : 0;
+                --idleMoon6X : 0;
+                --idleMoon1Y : 0;
+                --idleMoon2Y : 0;
+                --idleMoon3Y : 0;
+                --idleMoon4Y : 0;
+                --idleMoon5Y : 0;
+                --idleMoon6Y : 0;
+                --idleMoon1Opacity : 1;
+                --idleMoon2Opacity : 1;
+                --idleMoon3Opacity : 1;                
+                --idleMoon4Opacity : 1;
+                --idleMoon5Opacity : 1;
+                --idleMoon6Opacity : 1;
+
+                --twinkleOpacity : 1;
+                --idleMoonOpacityP : 1;
+                --idleSunCloud1 : 0;
+                --idleSunCloud2 : 0;
+                --idleSunCloud3 : 0;
+                --idleSunOpacity : 0;
             }
             #svg_moonLeft path{
                 d: path(var(--moonLeft_CSS));
@@ -230,7 +345,7 @@
                 text-align: center;
                 opacity:var(--opacity_shadow);
             }
-            #browserCheck{
+            #browserCheckSafari{
                 position : fixed;
                 margin : 0;
                 padding : 0;
@@ -239,33 +354,250 @@
                 background-color : black;
                 opacity: var(--safari);
             }
-        </style>
+            #browserCheckFireFox{
+                position : fixed;
+                margin : 0;
+                padding : 0;
+                width : 100vw;
+                height : 100vh;
+                background-color : black;
+                opacity: var(--fireFox);
+            }
+            .useScroll{
+                position : absolute;
+                width : 100vw;
+                bottom : 10vw;;
+                text-align: center;
+                opacity: var(--twinkleOpacity);
+                font-size: 3vw;
+            }
+            @media screen and (max-width : 780px){
+                .ground{
+                    height : 50vh;
+                }
+                .idleSunCloud1{
+                    top : 15vh;
+                }
+                .idleSunCloud2{
+                    top : 17vh;
+                }
+                .idleSunCloud3{
+                    top : 13vh;
+                }
+                .useScroll{
+                bottom : 15vw;
+                }
+            }
+            @media screen and (max-width : 380px){
+                .ground{
+                    height : 60vh;
+                }
+                .idleSunCloud1{
+                    top : 30vh;
+                }
+                .idleSunCloud2{
+                    top : 32vh;
+                }
+                .idleSunCloud3{
+                    top : 28vh;
+                }
+                .useScroll{
+                bottom : 20vw;
+                }
+            }
+        </style>    
     </head>
 
 
     <body>
         <script>
-            var per, groundWidthVW, moonLeft, moonRight, cl,shadowBox, shadowX1, shadowX2, shadowY, shadowXX1, shadowXX2, shadowOpacity, cupLightX, cupLightY, cupLightOpacity;
-
+            var per, groundWidthVW, moonLeft, moonRight, cl,shadowBox, shadowX1, shadowX2, shadowY, shadowXX1, shadowXX2, shadowOpacity, cupLightX, cupLightY, cupLightOpacity, cloudOpacity, starOpacity, p,cloudFloat1,cloudFloat2,cloudFloat3;
+            var safariCheck = 0;
+            var fireFoxCheck = 0;
+            var twinkleOpac = 0;
+            var twinkleAllOpacity = 0;
+            var b = true;
             let theme = document.querySelector(':root');
             let styles = getComputedStyle(theme);
 
-            setTimeout(function() {start(),opac(),shadow(),cupLight();}, 1);
+            //----------------------------------------browserCheck----------------------------------------
+            var agent = navigator.userAgent.toUpperCase();
+            if(agent.indexOf('TRIDENT') >= 0){
+            }else if(agent.indexOf('FIREFOX') >= 0) {
+                fireFoxCheck = 1;
+            }else if(agent.indexOf('EDG') >= 0) {
+            } else if (agent.indexOf('SAFARI') >= 0) {
+                if(agent.indexOf("CHROME") >= 0){
+                }else{
+                    safariCheck = 1;
+                }   
+            }
+
+            setTimeout(function() {start(),opac(),shadow(),cupLight(),idleMoon(),twinkle(),twinkleAllOpacityFunction();}, 1);
+            setTimeout(function() {start2(),idleSunCloudFloat1(),idleSunCloudFloat2(),idleSunCloudFloat3();},2);
+
             function start(){
                 var bodyEl = document.querySelector('body');
                 var bodyHeight = bodyEl.offsetHeight;
                 var scrollable = bodyHeight - window.innerHeight;
                 var progressEl = document.querySelector('#scrollBox');
                 per = Math.floor(window.scrollY / scrollable * 360);
-                let hii = getBrowserInfo();
-            //----------------------------------------browserCheck----------------------------------------
-                console.log(hii);
-                theme.style.setProperty('--safari', hii);
+                theme.style.setProperty('--safari', safariCheck);
+                theme.style.setProperty('--fireFox', fireFoxCheck);
+
+           
             }
+
+            function start2(){
+                //----------------------------------------cloudFloat----------------------------------------
+                cloudFloat1 = 0;
+                cloudFloat2 = 10*groundWidthVW;
+                cloudFloat3 = 80*groundWidthVW;
+                console.log(groundWidthVW,cloudFloat2);
+            }
+            //----------------------------------------idle----------------------------------------
+            let seconds = 0;
+            let idleInActive = false;
+            let interval = null;
+
+            const startTimer = () =>{
+                if (interval !== null){
+                    clearInterval(interval);
+                }
+                interval = setInterval(displayTimer, 1000);
+            }
+
+            window.onload = initializeTimer = () =>{
+                p = false;
+                if(idleInActive){
+                    return false;
+                }
+                seconds = 0;
+                startTimer();
+            }
+
+            window.onscroll = initializeTimer;
+
+            function displayTimer(){
+                seconds++;
+                if(seconds == 5){
+                    seconds = 0;
+                    p = true;
+                    clearInterval(interval);
+                }
+            }
+
+            function twinkleAllOpacityFunction(){
+                if(p && twinkleAllOpacity < 1){
+                    twinkleAllOpacity = (twinkleAllOpacity*10 + 0.5)/10;
+                    // console.log(p,twinkleAllOpacity);
+                    theme.style.setProperty('--twinkleOpacity',twinkleAllOpacity);
+                    setTimeout(twinkleAllOpacityFunction, 100);
+                }else if(p && twinkleAllOpacity >= 1){
+                    twinkleAllOpacity = 1;
+                    // console.log(p,twinkleAllOpacity);
+                    theme.style.setProperty('--twinkleOpacity',twinkleAllOpacity);
+                    setTimeout(twinkleAllOpacityFunction, 100);
+                }else if(!p && twinkleAllOpacity <= 1 && twinkleAllOpacity > 0){
+                    twinkleAllOpacity = (twinkleAllOpacity*10 - 0.5)/10;
+                    // console.log(p,twinkleAllOpacity);
+                    theme.style.setProperty('--twinkleOpacity',twinkleAllOpacity);
+                    setTimeout(twinkleAllOpacityFunction, 100);
+                }else if(!p && twinkleAllOpacity <= 0){
+                    twinkleAllOpacity = 0;
+                    // console.log(p,twinkleAllOpacity);
+                    theme.style.setProperty('--twinkleOpacity',twinkleAllOpacity);
+                    setTimeout(twinkleAllOpacityFunction, 100);
+                }else{
+                    // console.log(p,twinkleAllOpacity);
+                    theme.style.setProperty('--twinkleOpacity',twinkleAllOpacity);
+                    setTimeout(twinkleAllOpacityFunction, 100);
+                }
+            }
+
+           
+            function idleSunCloudFloat1(){
+                cloudFloat1 = cloudFloat1 + groundWidthVW*0.006;
+                setTimeout(idleSunCloudFloat1,1);
+                if(cloudFloat1 > groundWidthVW * 110.55){
+                    cloudFloat1 = groundWidthVW * -10.55;
+                }
+                theme.style.setProperty('--idleSunCloud1',cloudFloat1 + "px");
+            }
+            function idleSunCloudFloat2(){
+                cloudFloat2 = cloudFloat2 + groundWidthVW*0.003;
+                setTimeout(idleSunCloudFloat2,1);
+                if(cloudFloat2 > groundWidthVW * 110.5){
+                    cloudFloat2 = groundWidthVW * -10.55 ;
+                }
+                theme.style.setProperty('--idleSunCloud2',cloudFloat2 + "px");
+            }
+            function idleSunCloudFloat3(){
+                cloudFloat3 = cloudFloat3 - groundWidthVW*0.009;
+                setTimeout(idleSunCloudFloat3,1);
+                if(cloudFloat3 < groundWidthVW * -16.88){
+                    cloudFloat3 = groundWidthVW * 116.88;
+                }
+                theme.style.setProperty('--idleSunCloud3',cloudFloat3 + "px");
+            }
+
+            // console.log(idleMoon1Opacity,idleMoon2Opacity,idleMoon3Opacity,idleMoon4Opacity,idleMoon5Opacity,idleMoon6Opacity);
+            function idleMoon(){
+                theme.style.setProperty('--idleMoon1X', Math.floor(Math.random()*80)+"vw");
+                theme.style.setProperty('--idleMoon2X', Math.floor(Math.random()*80)+"vw");
+                theme.style.setProperty('--idleMoon3X', Math.floor(Math.random()*80)+"vw");
+                theme.style.setProperty('--idleMoon4X', Math.floor(Math.random()*80)+"vw");
+                theme.style.setProperty('--idleMoon5X', Math.floor(Math.random()*80)+"vw");
+                theme.style.setProperty('--idleMoon6X', Math.floor(Math.random()*80)+"vw");
+                theme.style.setProperty('--idleMoon1Y', Math.floor(Math.random()*40)+"vw");
+                theme.style.setProperty('--idleMoon2Y', Math.floor(Math.random()*40)+"vw");
+                theme.style.setProperty('--idleMoon3Y', Math.floor(Math.random()*40)+"vw");
+                theme.style.setProperty('--idleMoon4Y', Math.floor(Math.random()*40)+"vw");
+                theme.style.setProperty('--idleMoon5Y', Math.floor(Math.random()*40)+"vw");
+                theme.style.setProperty('--idleMoon6Y', Math.floor(Math.random()*40)+"vw");
+                
+            }
+            
+            function twinkle(){
+                setTimeout(twinkeTimer, 50);
+            }
+            function twinkleNone(){
+                setTimeout(twinkleTimerNone, 50);
+            }
+            function twinkeTimer(){
+                twinkleOpac = (twinkleOpac*10 + 0.5)/10;
+                twinkleOpacStart();
+                if(twinkleOpac == 1){
+                    setTimeout(twinkleNone, 1000);
+                }else{
+                    twinkle();
+                }
+            }
+            function twinkleTimerNone(){
+                twinkleOpac = (twinkleOpac*10 - 0.5)/10;
+                twinkleOpacStart();
+                if(twinkleOpac == 0){
+                    idleMoon();
+                    setTimeout(twinkle, 1000);
+                }else{
+                    twinkleNone();
+                }
+            }
+
+            function twinkleOpacStart(){
+                theme.style.setProperty('--idleMoon1Opacity',twinkleOpac);
+                theme.style.setProperty('--idleMoon2Opacity',twinkleOpac);
+                theme.style.setProperty('--idleMoon3Opacity',twinkleOpac);
+                theme.style.setProperty('--idleMoon4Opacity',twinkleOpac);
+                theme.style.setProperty('--idleMoon5Opacity',twinkleOpac);
+                theme.style.setProperty('--idleMoon6Opacity',twinkleOpac);
+            }
+
             //----------------------------------------ShadowOpacity----------------------------------------
             function opac(){
                 if(per > 0 && per < 40){
                     shadowOpacity = per * 0.025;
+                    
                 }else if(per > 39 && per < 141){
                     shadowOpacity = 1;
                 }else if(per > 140 && per < 180){
@@ -274,21 +606,41 @@
                     shadowOpacity = 0;
                 }
 
-
                 if(per > 180 && per < 220){
                     cupLightOpacity = (per-180) * 0.025;
                 }else if(per > 219 && per < 321){
                     cupLightOpacity = 1;
                 }else if(per > 320 && per < 359){
                     cupLightOpacity = (1 - (per-320) * 0.025);
-                }else if(per == 359){
-                    cupLightOpacity = 0;
                 }else{
                     cupLightOpacity = 0;
+                }
+
+                if(per > 180 && per < 220){
+                    starOpacity = (per-180) * 0.025;
+                }else if(per > 219 && per < 321){
+                    starOpacity = 1;
+                }else if(per > 320 && per < 361){
+                    starOpacity = (1 - (per-320) * 0.02);
+                }else{
+                    starOpacity = 0;
+                }
+
+                if(per >= 0 && per < 40){
+                    cloudOpacity = 0.2 + per * 0.05;
+                }else if(per > 39 && per < 141){
+                    cloudOpacity = 1;
+                }else if(per > 140 && per < 179){
+                    cloudOpacity = (1 - (per-140) * 0.025);
+                }else{
+                    cloudOpacity = 0;
                 }
                 
                 theme.style.setProperty('--opacity_shadow',shadowOpacity);
                 theme.style.setProperty('--opacity_cupLight',cupLightOpacity);
+                theme.style.setProperty('--idleMoonOpacityP',starOpacity); //idleMoon
+                theme.style.setProperty('--idleSunOpacity',cloudOpacity);
+
                 // console.log(shadowOpacity);
             }
             //----------------------------------------Shadow----------------------------------------
@@ -301,7 +653,7 @@
                 shadowY = groundWidthVW * 15;
 
                 if(per<180){
-                    shadowXX1 =groundWidthVW * 30 - per * 0.17 * groundWidthVW;
+                    shadowXX1 = groundWidthVW * 30 - per * 0.17 * groundWidthVW;
                     shadowXX2 = groundWidthVW * 30 + shadowXX1;
                     theme.style.setProperty('--shadow', '"M '+shadowX1+' 0, L '+shadowXX1+' '+shadowY+', L '+shadowXX2+' '+shadowY+', L '+shadowX2+' 0"');
                 }
@@ -327,15 +679,6 @@
                 // console.log(cupLightX,cupLightY);
             }
 
-            //     function cupLight(){
-            //     if(per>180 && per<270){
-            //         cupLightY = 46.8/(per-180);
-            //     }else if(per > 269){
-            //         cupLightY = (5.2 - (per-270)*0.03)*groundWidthVW;
-            //     }
-            //     theme.style.setProperty('--cupLightY',cupLightY+'px')
-            //     console.log(cupLightY);
-            // }
             window.addEventListener('scroll', function(){
 
                 //---------------------------------------rotate box----------------------------------------
@@ -387,7 +730,7 @@
                 // console.log(shadowX1, shadowX2);
                 // console.log(per, moonLeft , moonRight);
                 // console.log(per,nowDeg,sunDeg);
-                console.log(per);
+                // console.log(per);
                 // document.body.style.backgroundColor = 'rgb(' + cl + ',' + cl + ',' + cl + ')';
                 // console.log(styles.getPropertyValue('--background_Color'));
                 // console.log(per,  groundWidthVW,shadowXX1,shadowXX2);
@@ -402,28 +745,83 @@
                 cupLight();
             });
             
-            function getBrowserInfo(){ 
-                var agent = navigator.userAgent.toUpperCase();
-                if(agent.indexOf('TRIDENT') >= 0){
-                    return 0; //IE
-                }else if(agent.indexOf('FIREFOX') >= 0) {
-                    return 0;  
-                }else if(agent.indexOf('EDG') >= 0) {
-                    return 0;
-                } else if (agent.indexOf('SAFARI') >= 0) {
-                    if(agent.indexOf("CHROME") >= 0){
-                        return 0;  
-                    }else{
-                        return 1;
-                    }   
-                } else { 
-                    return 0;
-                }
-            }
+            
             
         </script>
             <div class = "centerBox">
                 <div class ="alginBox">
+                    <div class = "idleSunP">
+                        <div class = "idleSun">
+                            <div class = "idleSunCloud1">
+                                <svg viewBox = "0 0 422 288">
+                                    <path class="idleSunID1" d="m334.99,91.59c-4.96-48.36-45.82-86.09-95.49-86.09-45.44,0-83.5,31.57-93.45,73.96-9.17-5.68-19.97-8.96-31.55-8.96-33.14,0-60,26.86-60,60,0,5.66.8,11.12,2.26,16.31-29.51,7.83-51.26,34.71-51.26,66.69,0,38.11,30.89,69,69,69h246c53.02,0,96-42.98,96-96,0-48.09-35.36-87.92-81.51-94.91Z"/>
+                                </svg>
+                            </div>
+                            <div class = "idleSunCloud2">
+                                <svg viewBox = "0 0 422 288">
+                                    <path class="idleSunID1" d="m334.99,91.59c-4.96-48.36-45.82-86.09-95.49-86.09-45.44,0-83.5,31.57-93.45,73.96-9.17-5.68-19.97-8.96-31.55-8.96-33.14,0-60,26.86-60,60,0,5.66.8,11.12,2.26,16.31-29.51,7.83-51.26,34.71-51.26,66.69,0,38.11,30.89,69,69,69h246c53.02,0,96-42.98,96-96,0-48.09-35.36-87.92-81.51-94.91Z"/>
+                                </svg>
+                            </div>
+                            <div class = "idleSunCloud3">
+                                <svg viewBox = "0 0 422 288">
+                                    <path class="idleSunID1" d="m334.99,91.59c-4.96-48.36-45.82-86.09-95.49-86.09-45.44,0-83.5,31.57-93.45,73.96-9.17-5.68-19.97-8.96-31.55-8.96-33.14,0-60,26.86-60,60,0,5.66.8,11.12,2.26,16.31-29.51,7.83-51.26,34.71-51.26,66.69,0,38.11,30.89,69,69,69h246c53.02,0,96-42.98,96-96,0-48.09-35.36-87.92-81.51-94.91Z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class = "idleMoon">
+                        <div class = "idleMoonP">
+                            <div id = "idleMoon1">
+                                <svg viewBox = "0 0 100 100">
+                                    <path class = "cupLightSVG" d = "M 10 50, Q 50 50 50 10"></path>
+                                    <path class = "cupLightSVG" d = "M 10 50, Q 50 50 50 90"></path>
+                                    <path class = "cupLightSVG" d = "M 90 50, Q 50 50 50 10"></path>
+                                    <path class = "cupLightSVG" d = "M 90 50, Q 50 50 50 90"></path>
+                                </svg>
+                            </div>
+                            <div id = "idleMoon2">
+                                <svg viewBox = "0 0 100 100">
+                                    <path class = "cupLightSVG" d = "M 10 50, Q 50 50 50 10"></path>
+                                    <path class = "cupLightSVG" d = "M 10 50, Q 50 50 50 90"></path>
+                                    <path class = "cupLightSVG" d = "M 90 50, Q 50 50 50 10"></path>
+                                    <path class = "cupLightSVG" d = "M 90 50, Q 50 50 50 90"></path>
+                                </svg>
+                            </div>
+                            <div id = "idleMoon3">
+                                <svg viewBox = "0 0 100 100">
+                                    <path class = "cupLightSVG" d = "M 10 50, Q 50 50 50 10"></path>
+                                    <path class = "cupLightSVG" d = "M 10 50, Q 50 50 50 90"></path>
+                                    <path class = "cupLightSVG" d = "M 90 50, Q 50 50 50 10"></path>
+                                    <path class = "cupLightSVG" d = "M 90 50, Q 50 50 50 90"></path>
+                                </svg>
+                            </div>
+                            <div id = "idleMoon4">
+                                <svg viewBox = "0 0 100 100">
+                                    <path class = "cupLightSVG" d = "M 10 50, Q 50 50 50 10"></path>
+                                    <path class = "cupLightSVG" d = "M 10 50, Q 50 50 50 90"></path>
+                                    <path class = "cupLightSVG" d = "M 90 50, Q 50 50 50 10"></path>
+                                    <path class = "cupLightSVG" d = "M 90 50, Q 50 50 50 90"></path>
+                                </svg>
+                            </div>
+                            <div id = "idleMoon5">
+                                <svg viewBox = "0 0 100 100">
+                                    <path class = "cupLightSVG" d = "M 10 50, Q 50 50 50 10"></path>
+                                    <path class = "cupLightSVG" d = "M 10 50, Q 50 50 50 90"></path>
+                                    <path class = "cupLightSVG" d = "M 90 50, Q 50 50 50 10"></path>
+                                    <path class = "cupLightSVG" d = "M 90 50, Q 50 50 50 90"></path>
+                                </svg>
+                            </div>
+                            <div id = "idleMoon6">
+                                <svg viewBox = "0 0 100 100">
+                                    <path class = "cupLightSVG" d = "M 10 50, Q 50 50 50 10"></path>
+                                    <path class = "cupLightSVG" d = "M 10 50, Q 50 50 50 90"></path>
+                                    <path class = "cupLightSVG" d = "M 90 50, Q 50 50 50 10"></path>
+                                    <path class = "cupLightSVG" d = "M 90 50, Q 50 50 50 90"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
                     <div class = "child">
                         <div class = "sunBox">
                             <svg class = "sunFire" viewBox="-5 -5 110 110">
@@ -448,6 +846,11 @@
                     </div>
                 </div>
                 <div class ="ground">
+                    <div class = "useScroll">
+                        <p>
+                            <span style = "font-family: 'Oswald', sans-serif;">"Use Scroll!"</span>
+                        </p>
+                    </div>
                     <div class = "shadow">
                         <svg class = "shadowBox" id = "svg_shadowBox" veiwBox="0 0 100 100">
                             <path d = "M 0 0, L 100 0, L 180 150, L 300 150, L 170 0" fill="url(#grad1)"/>
@@ -479,9 +882,19 @@
                     </div>
                 </div>
             </div>
-            <div id = "browserCheck" style="color:white; font-size: 50px;">
-                It is not available in safari
+            <div id = "browserCheckSafari" style="color:white; font-size: 50px;">
+                <span style = "font-family: 'Oswald', sans-serif;">
+                    It is not available in Safari
+                </span>
             </div>
+            <div id = "browserCheckFireFox" style="color:white; font-size: 50px;">
+                <span style = "font-family: 'Oswald', sans-serif;">
+                    It is not available in Firefox
+                </span>
+                
+            </div>
+            
         </script>
+        
     </body>
 </html>
