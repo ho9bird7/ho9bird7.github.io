@@ -41,7 +41,6 @@
                 outline: dashed var(--dashed_box) black;
                 transform: rotate( -45deg );
             }
-           
             .ground{
                 position : absolute;
                 margin-top:70vh;
@@ -110,13 +109,11 @@
                 height : 100%;
                 width : 100%;
                 outline : dashed var(--dashed_box) magenta;
-                
             }
             .idleSun{
                 height : 100vh;
                 width : 100vw;
                 opacity: var(--twinkleOpacity);
-                /* background-color: red; */
             }
             .idleSunP{
                 position:absolute;
@@ -179,8 +176,6 @@
             }
 
 
-           
-
             #idleMoon1{left : var(--idleMoon1X); top : var(--idleMoon1Y); opacity : var(--idleMoon1Opacity);}
             #idleMoon2{left : var(--idleMoon2X); top : var(--idleMoon2Y); opacity : var(--idleMoon2Opacity);}
             #idleMoon3{left : var(--idleMoon3X); top : var(--idleMoon3Y); opacity : var(--idleMoon3Opacity);}
@@ -188,17 +183,10 @@
             #idleMoon5{left : var(--idleMoon5X); top : var(--idleMoon5Y); opacity : var(--idleMoon5Opacity);}
             #idleMoon6{left : var(--idleMoon6X); top : var(--idleMoon6Y); opacity : var(--idleMoon6Opacity);}
 
-
             @keyframes rotate_image{100% {transform: rotate(360deg);}}
             @keyframes rotate_box{100% {transform: rotate(-360deg);}}
 
-            /* 스크롤 */
             body::-webkit-scrollbar{display:none;}
-            /* #scrollBox{
-                margin-bottom: 0px;
-                outline: dashed 1px black;
-            } */
-           
 
             /* 기타변수들 */
             :root{
@@ -242,6 +230,7 @@
                 --idleSunCloud3 : 0;
                 --idleSunOpacity : 0;
             }
+
             #svg_moonLeft path{
                 d: path(var(--moonLeft_CSS));
             }
@@ -315,7 +304,6 @@
                 stroke-linecap: round;
                 stroke-linejoin: round;
                 stroke-width: 3px;
-
             }
             .cup3{
                 stroke: #000;
@@ -444,8 +432,6 @@
                 per = Math.floor(window.scrollY / scrollable * 360);
                 theme.style.setProperty('--safari', safariCheck);
                 theme.style.setProperty('--fireFox', fireFoxCheck);
-
-           
             }
 
             function start2(){
@@ -746,7 +732,6 @@
             });
             
             
-            
         </script>
             <div class = "centerBox">
                 <div class ="alginBox">
@@ -891,10 +876,7 @@
                 <span style = "font-family: 'Oswald', sans-serif;">
                     It is not available in Firefox
                 </span>
-                
             </div>
-            
         </script>
-        
     </body>
 </html>
