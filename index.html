@@ -199,6 +199,7 @@
                 --shadowBox_X2 : 0px;
                 --opacity_shadow : 0;
                 --safari : 1;
+                --android : 1;
                 --fireFox : 1;
                 --cupLightX : 0;
                 --cupLightY : 0;
@@ -342,6 +343,15 @@
                 background-color : black;
                 opacity: var(--safari);
             }
+            #browserCheckAndroid{
+                position : fixed;
+                margin : 0;
+                padding : 0;
+                width : 100vw;
+                height : 100vh;
+                background-color : black;
+                opacity: var(--android);
+            }
             #browserCheckFireFox{
                 position : fixed;
                 margin : 0;
@@ -402,6 +412,7 @@
             var per, groundWidthVW, moonLeft, moonRight, cl,shadowBox, shadowX1, shadowX2, shadowY, shadowXX1, shadowXX2, shadowOpacity, cupLightX, cupLightY, cupLightOpacity, cloudOpacity, starOpacity, p,cloudFloat1,cloudFloat2,cloudFloat3;
             var safariCheck = 0;
             var fireFoxCheck = 0;
+            var androidCheck = 0;
             var twinkleOpac = 0;
             var twinkleAllOpacity = 0;
             var b = true;
@@ -413,8 +424,10 @@
             if(agent.indexOf('TRIDENT') >= 0){
             }else if(agent.indexOf('FIREFOX') >= 0) {
                 fireFoxCheck = 1;
-            }else if(agent.indexOf('EDG') >= 0) {
-            } else if (agent.indexOf('SAFARI') >= 0) {
+            }else if(agent.indexOf('android') >= 0) {
+                androidCheck = 1;
+            } else if(agent.indexOf('EDG') >= 0) {
+            }else if (agent.indexOf('SAFARI') >= 0) {
                 if(agent.indexOf("CHROME") >= 0){
                 }else{
                     safariCheck = 1;
@@ -431,6 +444,7 @@
                 var progressEl = document.querySelector('#scrollBox');
                 per = Math.floor(window.scrollY / scrollable * 360);
                 theme.style.setProperty('--safari', safariCheck);
+                theme.style.setProperty('--android', androidCheck);
                 theme.style.setProperty('--fireFox', fireFoxCheck);
             }
 
@@ -870,6 +884,11 @@
             <div id = "browserCheckSafari" style="color:white; font-size: 50px;">
                 <span style = "font-family: 'Oswald', sans-serif;">
                     It is not available in Safari
+                </span>
+            </div>
+            <div id = "browserCheckAndroid" style="color:white; font-size: 50px;">
+                <span style = "font-family: 'Oswald', sans-serif;">
+                    It is not available in Android
                 </span>
             </div>
             <div id = "browserCheckFireFox" style="color:white; font-size: 50px;">
